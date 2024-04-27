@@ -76,7 +76,15 @@ take a look at [important notes](#important-notes) before you continue.
   field: `chmod -R 775 "%F/"`.
 - You'll have to add indexers in Prowlarr by hand. Use Prowlarrs settings to connect it to the
   other -arr apps.
-  
+
+### IMPORTANT IF USING NFS SHARES
+- NFS shares' permissions are mapped by user IDs. If you want to access a file as a client, your user ID needs to match the user ID of the owner (or group) of that file on the NFS server. 
+Note that if you are a group member (and not the owner), having matching group IDs won't be enough, there also needs to be a corresponding user on the NFS server. The easiest way to make sure
+the users and groups are set up on both sides correctly is to run setup.sh on both your NFS server and your client. Preferably run it on the server first.
+If you are running this script on the client make sure that you temporarily enable -no-root-squash on your NFS server, as the script needs superuser privileges to run and by deafult on NFS the root
+user is mapped to nowhere to prevent abuse.
+
+
 ### SABnzbd External internet access denied message
 When you're trying to access SABnzbd the first time you'll come across the message `External
 internet access denied`. To fix this simple modify the `sabnzbd.ini` and change `inet_exposure` to
