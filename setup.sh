@@ -23,6 +23,7 @@ sudo usermod -a -G mediacenter lidarr
 sudo usermod -a -G mediacenter readarr
 sudo usermod -a -G mediacenter mylar
 sudo usermod -a -G mediacenter audiobookshelf
+sudo usermod -a -G mediacenter bazarr
 sudo usermod -a -G mediacenter prowlarr
 sudo usermod -a -G mediacenter jackett
 sudo usermod -a -G mediacenter plex
@@ -30,8 +31,6 @@ sudo usermod -a -G mediacenter overseerr
 sudo usermod -a -G mediacenter jellyseerr
 sudo usermod -a -G mediacenter qbittorrent
 sudo usermod -a -G mediacenter sabnzbd
-
-sudo usermod -a -G mediacenter bazarr
 
 # Make directories
 sudo mkdir -pv config/{sonarr,radarr,lidarr,readarr,mylar,audiobookshelf,bazarr,jackett,prowlarr,plex,tautulli,overseerr,jellyseerr,qbittorrent,sabnzbd}-config
