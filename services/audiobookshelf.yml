@@ -1,0 +1,15 @@
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    environment:
+      - user=${AUDIOBOOKSHELF_UID}:${MEDIACENTER_GID}
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/audiobookshelf:/config
+      - ${ROOT_DIR}/data/media/audiobooks:/audiobooks
+      - ${ROOT_DIR}/data/media/podcasts:/podcasts
+      - ${ROOT_DIR}/data/media/audiobookshelf-metadata:/metadata
+    ports:
+      - "13378:80"
+    restart: unless-stopped
+

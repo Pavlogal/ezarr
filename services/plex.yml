@@ -1,0 +1,14 @@
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=${PLEX_UID}
+      - PGID=${MEDIACENTER_GID}
+      - VERSION=docker
+      - PLEX_CLAIM=${PLEX_CLAIM}
+    volumes:
+      - ${ROOT_DIR}/config/plex-config:/config
+      - ${ROOT_DIR}/data/media:/media
+    restart: unless-stopped
+

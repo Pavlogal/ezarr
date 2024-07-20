@@ -1,0 +1,15 @@
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      - PUID=${READARR_UID}
+      - PGID=${MEDIACENTER_GID}
+      - UMASK=002
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/readarr-config:/config
+      - ${ROOT_DIR}/data:/data
+    ports:
+      - "8787:8787"
+    restart: unless-stopped
+

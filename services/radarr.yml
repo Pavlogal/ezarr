@@ -1,0 +1,15 @@
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=${RADARR_UID}
+      - PGID=${MEDIACENTER_GID}
+      - UMASK=002
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/radarr-config:/config
+      - ${ROOT_DIR}/data:/data
+    ports:
+      - "7878:7878"
+    restart: unless-stopped
+

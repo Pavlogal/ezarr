@@ -1,0 +1,15 @@
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=${SABNZBD_UID}
+      - PGID=${MEDIACENTER_GID}
+      - UMASK=002
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/sabnzbd-config:/config
+      - ${ROOT_DIR}/data/usenet:/downloads
+    ports:
+      - "8081:8080"
+    restart: unless-stopped
+

@@ -1,0 +1,14 @@
+  mylar3:
+    image: lscr.io/linuxserver/mylar3:latest
+    container_name: mylar3
+    environment:
+      - PUID=${MYLAR_UID}
+      - PGID=${MEDIACENTER_GID}
+      - UMASK=002
+    volumes:
+      - ${ROOT_DIR}/config/mylar-config:/config
+      - ${ROOT_DIR}/data:/data
+    ports:
+      - "8090:8090"
+    restart: unless-stopped
+

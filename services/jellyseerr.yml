@@ -1,0 +1,14 @@
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - PUID=${JELLYSEERR_UID}
+      - PGID=${MEDIACENTER_GID}
+      - UMASK=002
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/jellyseerr-config:/app/config
+    ports:
+      - "5056:5055"
+    restart: unless-stopped
+

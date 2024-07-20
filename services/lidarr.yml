@@ -1,0 +1,15 @@
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=${LIDARR_UID}
+      - PGID=${MEDIACENTER_GID}
+      - UMASK=002
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/lidarr-config:/config
+      - ${ROOT_DIR}/data:/data
+    ports:
+      - "8686:8686"
+    restart: unless-stopped
+
